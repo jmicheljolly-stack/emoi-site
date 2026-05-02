@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ÉMOI — Travel Planner Privé Île Maurice | Jean-Michel JOLLY</title>
+<meta name="description" content="ÉMOI est votre travel planner privé basé à l'île Maurice. Voyages sur-mesure pour couples, dirigeants et familles exigeantes. Méthode EIOS™. Concevoir l'expérience. Orchestrer l'émotion.">
+<meta property="og:title" content="ÉMOI — Travel Planner Privé · Île Maurice">
+<meta property="og:description" content="Votre voyage n'existera qu'une fois. On s'en occupe. Travel planner privé basé à Maurice — Jean-Michel JOLLY.">
+<meta property="og:url" content="https://emoimaurice.com">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="index_files/css2.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --prune:#3D1530;
+  --prune-deep:#1F0816;
+  --prune-mid:#6B2B52;
+  --or:#C9A050;
+  --or-bright:#D4B468;
+  --or-dim:rgba(201,160,80,.55);
+  --rose:#D4849E;
+  --rose-deep:#A85878;
+  --creme:#FAF5F0;
+  --creme-dim:#E8DDD0;
+  --blanc:#FFFFFF;
+  --blanc-95:rgba(255,255,255,.95);
+  --blanc-80:rgba(255,255,255,.8);
+  --blanc-60:rgba(255,255,255,.6);
+  --blanc-40:rgba(255,255,255,.4);
+}
+
+html{scroll-behavior:smooth;background:var(--prune-deep)}
+
+body{
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  background:var(--prune-deep);
+  color:var(--blanc);
+  font-size:15px;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+
+::selection{background:var(--or);color:var(--prune-deep)}
+
+/* ── DECORATIVE ELEMENTS ────────────────────────────────────── */
+.grain{
+  position:fixed;inset:0;z-index:50;pointer-events:none;
+  opacity:.08;mix-blend-mode:overlay;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255,255,255,.5) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255,255,255,.3) 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+}
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 64px;
+  background:rgba(31,8,22,.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(201,160,80,.08);
+  transition:padding .4s cubic-bezier(.2,.8,.2,1);
+}
+nav.compact{padding:14px 64px;background:rgba(31,8,22,.95)}
+
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-logo svg{transition:transform .3s}
+.nav-logo:hover svg{transform:translateY(-1px)}
+
+.nav-name{
+  font-family:'Italiana',serif;
+  font-size:20px;letter-spacing:.32em;
+  color:var(--creme);font-weight:400;
+}
+
+.nav-links{display:flex;align-items:center;gap:48px}
+.nav-link{
+  font-size:11px;font-weight:300;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--blanc-60);text-decoration:none;
+  position:relative;
+  transition:color .3s;
+}
+.nav-link::after{
+  content:'';position:absolute;bottom:-6px;left:0;
+  width:0;height:1px;background:var(--or);
+  transition:width .4s cubic-bezier(.2,.8,.2,1);
+}
+.nav-link:hover{color:var(--blanc)}
+.nav-link:hover::after{width:100%}
+
+.nav-cta{
+  font-size:11px;font-weight:400;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--or);
+  border:1px solid rgba(201,160,80,.4);
+  padding:11px 26px;text-decoration:none;
+  position:relative;overflow:hidden;
+  transition:color .4s;
+}
+.nav-cta::before{
+  content:'';position:absolute;inset:0;
+  background:var(--or);
+  transform:translateY(101%);
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+  z-index:-1;
+}
+.nav-cta:hover{color:var(--prune-deep)}
+.nav-cta:hover::before{transform:translateY(0)}
+
+/* ── HERO ────────────────────────────────────────────────────── */
+.hero{
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse 100% 70% at 50% 100%, rgba(168,88,120,.22) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 60% at 30% 70%, rgba(168,88,120,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 70% 30%, rgba(201,160,80,.12) 0%, transparent 60%),
+    linear-gradient(180deg, var(--prune-deep) 0%, #2C0E22 50%, var(--prune-deep) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+  padding:140px 48px 100px;
+  position:relative;overflow:hidden;
+}
+
+/* Decorative lines hero */
+.hero::before{
+  content:'';position:absolute;
+  top:30%;left:8%;width:1px;height:140px;
+  background:linear-gradient(to bottom,transparent,rgba(201,160,80,.4),transparent);
+  animation:slideDown 3s ease-in-out infinite;
+}
+.hero::after{
+  content:'';position:absolute;
+  bottom:20%;right:10%;width:140px;height:1px;
+  background:linear-gradient(to right,transparent,rgba(212,132,158,.4),transparent);
+  animation:slideRight 4s ease-in-out infinite;
+}
+@keyframes slideDown{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes slideRight{0%,100%{opacity:.3}50%{opacity:1}}
+
+.hero-mountain{
+  margin-bottom:-12px;position:relative;z-index:2;
+  animation:fadeIn 1.4s ease-out both;
+}
+.hero-word{position:relative;z-index:2;animation:fadeIn 1.4s .3s ease-out both}
+.hero-rule{
+  width:1px;height:48px;background:var(--or);
+  margin:32px auto 28px;position:relative;z-index:2;
+  animation:expandV .8s 1s ease-out both;transform-origin:top;
+}
+@keyframes expandV{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+.hero-sub{
+  font-family:'Italiana',serif;
+  font-size:11px;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--or);margin-bottom:64px;position:relative;z-index:2;
+  animation:fadeIn 1s 1.3s ease-out both;
+}
+
+.hero-tagline{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-weight:300;font-size:30px;
+  color:var(--blanc-95);
+  max-width:580px;margin:0 auto 56px;
+  line-height:1.5;position:relative;z-index:2;
+  animation:fadeIn 1.2s 1.6s ease-out both;
+}
+.hero-tagline em{color:var(--rose);font-style:normal}
+
+.btn-primary{
+  display:inline-block;
+  border:1px solid var(--or);
+  color:var(--or);
+  font-family:'Jost',sans-serif;font-weight:400;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  padding:18px 46px;text-decoration:none;
+  position:relative;z-index:2;
+  transition:all .4s cubic-bezier(.2,.8,.2,1);
+  overflow:hidden;
+  animation:fadeIn 1s 2s ease-out both;
+}
+.btn-primary span{position:relative;z-index:1;transition:color .4s}
+.btn-primary::before{
+  content:'';position:absolute;inset:0;
+  background:var(--or);
+  transform:translateY(101%);
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.btn-primary:hover::before{transform:translateY(0)}
+.btn-primary:hover span{color:var(--prune-deep)}
+
+.hero-scroll{
+  position:absolute;bottom:48px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+  z-index:2;
+  animation:fadeIn 1s 2.4s ease-out both;
+}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,transparent,var(--or));animation:scrollPulse 2.5s ease-in-out infinite}
+.scroll-label{
+  font-size:9px;font-weight:300;letter-spacing:.3em;
+  color:var(--or-dim);text-transform:uppercase;
+}
+@keyframes scrollPulse{
+  0%{transform:scaleY(0);transform-origin:top}
+  50%{transform:scaleY(1);transform-origin:top}
+  51%{transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom}
+}
+
+/* Wordmark */
+.emoi-word{display:inline-flex;align-items:baseline;gap:0;line-height:1}
+.el{
+  font-family:'Italiana',serif;
+  font-weight:400;color:var(--creme);line-height:1;
+}
+
+/* ── SECTIONS ────────────────────────────────────────────────── */
+section{padding:140px 0;position:relative}
+.container{max-width:1140px;margin:0 auto;padding:0 64px}
+.section-label{
+  font-size:10px;font-weight:400;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:var(--or);margin-bottom:14px;
+  display:flex;align-items:center;gap:14px;
+}
+.section-label::before{
+  content:'';width:32px;height:1px;background:var(--or);
+}
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-size:64px;
+  color:var(--blanc);line-height:1.05;
+  margin-bottom:32px;letter-spacing:-.01em;
+}
+.section-title em{font-style:italic;color:var(--rose);font-family:'Italiana',serif}
+
+/* ── INTRO ───────────────────────────────────────────────────── */
+.intro{
+  background:linear-gradient(180deg,var(--prune-deep) 0%, var(--prune) 100%);
+  position:relative;
+}
+.intro-grid{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:96px;align-items:center;
+}
+.intro-text p{
+  font-size:16px;color:var(--blanc-80);
+  line-height:1.95;margin-bottom:24px;
+}
+.intro-text p strong{color:var(--blanc);font-weight:400}
+.intro-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:26px;
+  color:var(--blanc-95);line-height:1.45;
+  border-left:1px solid var(--or);
+  padding:8px 0 8px 32px;margin-top:40px;
+}
+
+.intro-visual{
+  background:
+    radial-gradient(circle at 20% 30%, rgba(212,132,158,.12) 0%, transparent 50%),
+    linear-gradient(160deg, var(--prune-mid) 0%, #4A1A38 100%);
+  padding:60px 52px;
+  position:relative;
+  border-top:1px solid rgba(201,160,80,.4);
+  border-bottom:1px solid rgba(201,160,80,.4);
+}
+.intro-visual::before{
+  content:'';position:absolute;top:-1px;left:30%;width:40%;height:3px;
+  background:var(--or);
+}
+.stat-row{display:flex;flex-direction:column;gap:32px}
+.stat-item{
+  border-bottom:1px solid rgba(255,255,255,.1);
+  padding-bottom:28px;
+}
+.stat-item:last-child{border-bottom:none;padding-bottom:0}
+.stat-num{
+  font-family:'Italiana',serif;
+  font-weight:400;font-size:56px;
+  color:var(--or);line-height:1;margin-bottom:10px;
+  letter-spacing:.02em;
+}
+.stat-label{font-size:13px;color:var(--blanc-80);line-height:1.7}
+
+/* ── MÉTHODE EIOS ────────────────────────────────────────────── */
+.methode{
+  background:linear-gradient(180deg,var(--prune) 0%, var(--prune-deep) 100%);
+  border-top:1px solid rgba(201,160,80,.12);
+  border-bottom:1px solid rgba(201,160,80,.12);
+}
+.methode-intro{max-width:580px;margin-bottom:80px}
+.methode-intro p{font-size:16px;color:var(--blanc-80);line-height:1.9}
+
+.eios-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(201,160,80,.15)}
+.eios-step{
+  padding:48px 32px;
+  position:relative;
+  background:var(--prune-deep);
+  transition:background .4s;
+}
+.eios-step:hover{background:var(--prune)}
+
+.eios-letter{
+  font-family:'Italiana',serif;
+  font-weight:400;font-size:96px;
+  color:rgba(201,160,80,.18);line-height:1;
+  margin-bottom:8px;letter-spacing:.04em;
+  transition:color .4s;
+}
+.eios-step:hover .eios-letter{color:rgba(201,160,80,.35)}
+
+.eios-name{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;font-size:24px;
+  color:var(--blanc);margin-bottom:18px;
+  letter-spacing:.02em;
+}
+.eios-body{font-size:13px;color:var(--blanc-80);line-height:1.75}
+.eios-or-dot{
+  position:absolute;top:48px;right:32px;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--or);
+  box-shadow:0 0 12px rgba(201,160,80,.6);
+}
+
+/* ── NIVEAUX D'ACCOMPAGNEMENT ────────────────────────────────── */
+.niveaux{
+  background:var(--prune-deep);
+  padding:140px 0 80px;
+}
+.niveaux-header{text-align:center;max-width:680px;margin:0 auto 80px}
+.niveaux-header .section-label{justify-content:center}
+.niveaux-header .section-label::before{display:none}
+.niveaux-intro{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:18px;color:var(--blanc-80);
+  line-height:1.7;margin-top:16px;
+}
+
+.niveaux-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;background:rgba(201,160,80,.18);
+  max-width:1280px;margin:0 auto;
+}
+.niveau{
+  padding:56px 36px 44px;
+  display:flex;flex-direction:column;
+  position:relative;
+  min-height:780px;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+
+.niveau-decouverte{background:linear-gradient(180deg,#3D1530 0%,#2C0E22 100%)}
+.niveau-signature{
+  background:linear-gradient(180deg,#4D1B3A 0%,#3D1530 100%);
+  border-top:3px solid var(--or);
+  position:relative;z-index:1;
+}
+.niveau-signature::before{
+  content:'';position:absolute;inset:-1px;
+  border:1px solid transparent;
+  background:linear-gradient(180deg,rgba(201,160,80,.3) 0%,transparent 50%) border-box;
+  -webkit-mask:linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  pointer-events:none;
+}
+.niveau-privilege{background:linear-gradient(180deg,#1A0814 0%,#0F0408 100%);border-top:3px solid var(--rose)}
+
+.niveau:hover{transform:translateY(-4px)}
+
+.niveau-badge{
+  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  background:var(--or);color:var(--prune-deep);
+  font-family:'Italiana',serif;
+  font-size:10px;font-weight:400;letter-spacing:.24em;
+  padding:6px 18px;text-transform:uppercase;
+}
+
+.niveau-num{
+  font-family:'Italiana',serif;
+  font-size:11px;font-weight:400;letter-spacing:.32em;
+  color:var(--or);text-transform:uppercase;margin-bottom:14px;
+}
+.niveau-signature .niveau-num{margin-top:14px}
+.niveau-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-size:42px;
+  color:var(--blanc);line-height:1.05;margin-bottom:8px;
+  letter-spacing:-.01em;
+}
+.niveau-tagline{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:18px;
+  color:var(--blanc-80);margin-bottom:28px;line-height:1.4;
+}
+.niveau-rule{width:28px;height:1px;background:var(--or);margin:0 0 28px}
+.niveau-promise{
+  font-size:14px;color:var(--blanc-95);line-height:1.85;margin-bottom:36px;
+}
+
+.niveau-section{margin-bottom:28px}
+.niveau-section-title{
+  font-size:10px;font-weight:500;letter-spacing:.22em;
+  color:var(--or);text-transform:uppercase;margin-bottom:18px;
+}
+.niveau-list{display:flex;flex-direction:column;gap:11px}
+.niveau-item{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:13px;color:var(--blanc-95);line-height:1.55;
+}
+.li-mark{
+  width:14px;flex-shrink:0;margin-top:2px;
+  color:var(--or);font-size:12px;line-height:1;
+}
+
+.niveau-mecanique{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(201,160,80,.2);
+  padding:18px 20px;margin-bottom:32px;
+  position:relative;
+}
+.niveau-mecanique::before{
+  content:'';position:absolute;top:0;left:0;width:3px;height:100%;
+  background:var(--or);
+}
+.niveau-mecanique-title{
+  font-size:10px;font-weight:500;letter-spacing:.18em;
+  color:var(--or);text-transform:uppercase;margin-bottom:10px;
+}
+.niveau-mecanique-text{
+  font-size:12px;color:var(--blanc-80);line-height:1.7;
+}
+
+.niveau-honoraires{
+  margin-top:auto;padding-top:28px;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+.niveau-honoraires-label{
+  font-size:10px;font-weight:500;letter-spacing:.22em;
+  color:var(--or);text-transform:uppercase;margin-bottom:8px;
+}
+.niveau-honoraires-amount{
+  font-family:'Italiana',serif;
+  font-weight:400;font-size:42px;
+  color:var(--blanc);line-height:1;margin-bottom:8px;
+  letter-spacing:.01em;
+}
+.niveau-honoraires-note{font-size:11px;color:var(--blanc-80);line-height:1.5}
+.niveau-honoraires-credit{
+  font-size:11px;color:var(--or);
+  margin-top:10px;font-style:italic;
+  font-family:'Cormorant Garamond',serif;
+}
+
+/* ── ULTRA DISCRET ───────────────────────────────────────────── */
+.ultra-discret{
+  background:var(--prune-deep);
+  padding:48px 64px;
+  text-align:center;
+  border-top:1px solid rgba(201,160,80,.2);
+  border-bottom:1px solid rgba(201,160,80,.2);
+  margin-top:1px;
+}
+.ultra-inner{
+  max-width:780px;margin:0 auto;
+  display:flex;align-items:center;justify-content:center;gap:32px;
+  flex-wrap:wrap;
+}
+.ultra-mark{
+  font-family:'Italiana',serif;
+  font-size:24px;color:var(--blanc-95);letter-spacing:.12em;
+}
+.ultra-mark em{font-style:italic;color:var(--rose)}
+.ultra-text{
+  font-size:13px;color:var(--blanc-80);
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  letter-spacing:.02em;
+}
+.ultra-link{
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--or);text-decoration:none;
+  border-bottom:1px solid rgba(201,160,80,.4);padding-bottom:3px;
+  transition:border-color .3s, padding-bottom .3s;
+}
+.ultra-link:hover{border-bottom-color:var(--or);padding-bottom:5px}
+
+/* ── ANCRAGE MAURICIEN ───────────────────────────────────────── */
+.ancrage{
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(168,88,120,.10) 0%, transparent 60%),
+    linear-gradient(135deg, var(--prune) 0%, var(--prune-deep) 100%);
+  border-top:1px solid rgba(201,160,80,.12);
+}
+.ancrage-grid{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center}
+
+.ancrage-visual{
+  background:linear-gradient(160deg, #3D1530 0%, #1F0816 100%);
+  padding:56px 48px;position:relative;
+  border:1px solid rgba(201,160,80,.2);
+}
+.ancrage-visual::before{
+  content:'';position:absolute;top:-1px;left:-1px;width:60px;height:60px;
+  border-top:2px solid var(--or);border-left:2px solid var(--or);
+}
+.ancrage-visual::after{
+  content:'';position:absolute;bottom:-1px;right:-1px;width:60px;height:60px;
+  border-bottom:2px solid var(--or);border-right:2px solid var(--or);
+}
+
+.founder-label{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--or);margin-bottom:24px;font-family:'Italiana',serif}
+.founder-name{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;font-size:32px;color:var(--blanc);
+  margin-bottom:6px;letter-spacing:.01em;
+}
+.founder-role{font-size:12px;color:var(--or);letter-spacing:.18em;margin-bottom:28px;text-transform:uppercase}
+.founder-bio{font-size:13px;color:var(--blanc-80);line-height:1.85;margin-bottom:28px}
+.founder-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:18px;
+  color:var(--blanc-95);line-height:1.5;
+  border-left:1px solid var(--or);padding:4px 0 4px 24px;
+}
+
+.ancrage-eios{
+  margin-top:32px;padding-top:28px;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+.ancrage-eios-label{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--or);margin-bottom:14px;font-family:'Italiana',serif}
+.ancrage-eios-text{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:17px;
+  color:var(--blanc-80);letter-spacing:.04em;
+}
+
+.mauritian-facts{display:flex;flex-direction:column;gap:24px}
+.fact{
+  display:flex;align-items:flex-start;gap:20px;
+  padding:20px 0;border-bottom:1px solid rgba(255,255,255,.08);
+  transition:padding .3s;
+}
+.fact:hover{padding-left:8px}
+.fact:last-child{border-bottom:none}
+.fact-num{
+  font-family:'Italiana',serif;font-size:24px;
+  color:var(--or);line-height:1;
+  flex-shrink:0;width:36px;
+}
+.fact-title{font-size:14px;font-weight:400;color:var(--blanc);margin-bottom:6px;letter-spacing:.01em}
+.fact-body{font-size:13px;color:var(--blanc-80);line-height:1.7}
+
+/* ── PROCESSUS ───────────────────────────────────────────────── */
+.processus{
+  background:linear-gradient(180deg, var(--prune-deep) 0%, var(--prune) 100%);
+  border-top:1px solid rgba(201,160,80,.12);
+}
+.process-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin-top:80px;position:relative;
+}
+.process-step{padding:36px 32px 36px 0;border-right:1px solid rgba(255,255,255,.08);position:relative}
+.process-step:last-child{border-right:none}
+
+.process-num{
+  font-family:'Italiana',serif;
+  font-weight:400;font-size:64px;
+  color:rgba(201,160,80,.25);line-height:1;margin-bottom:14px;
+  letter-spacing:.02em;
+}
+.process-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:400;
+  color:var(--blanc);margin-bottom:14px;
+  letter-spacing:.01em;
+}
+.process-body{font-size:13px;color:var(--blanc-80);line-height:1.75}
+.process-or-line{width:32px;height:1px;background:var(--or);margin:14px 0}
+
+/* ── TÉMOIGNAGES ─────────────────────────────────────────────── */
+.temoignages{
+  background:var(--prune-deep);
+  border-top:1px solid rgba(201,160,80,.12);
+}
+.temoignages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,160,80,.15);margin-top:64px}
+.temoignage{
+  background:linear-gradient(160deg, var(--prune) 0%, #2C0E22 100%);
+  padding:48px 36px;
+  position:relative;
+}
+.temoignage::before{
+  content:'"';
+  position:absolute;top:18px;right:24px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:80px;color:rgba(201,160,80,.18);line-height:1;
+}
+.temoignage-stars{color:var(--or);font-size:13px;letter-spacing:4px;margin-bottom:24px}
+.temoignage-text{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:17px;
+  color:var(--blanc-95);line-height:1.65;
+  margin-bottom:32px;
+}
+.temoignage-author{font-size:13px;color:var(--blanc-95);font-weight:400;letter-spacing:.04em}
+.temoignage-trip{font-size:11px;color:var(--or);margin-top:4px;letter-spacing:.16em;text-transform:uppercase}
+
+/* ── FORMULAIRE ──────────────────────────────────────────────── */
+.formulaire{
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(168,88,120,.12) 0%, transparent 70%),
+    var(--prune-deep);
+  border-top:1px solid rgba(201,160,80,.12);
+  padding:140px 0 100px;
+}
+.form-container{max-width:720px;margin:0 auto;text-align:center;padding:0 64px}
+
+.form-header .section-label{justify-content:center}
+.form-header .section-label::before{display:none}
+
+.form-intro{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:22px;
+  color:var(--blanc-95);line-height:1.6;
+  margin-bottom:40px;
+}
+
+.form-note{
+  display:inline-block;
+  border:1px solid rgba(201,160,80,.3);
+  padding:14px 28px;
+  font-size:12px;color:var(--blanc-95);
+  margin-bottom:56px;line-height:1.7;
+  letter-spacing:.02em;
+}
+.form-note strong{color:var(--or);font-weight:400}
+
+.form-group{margin-bottom:24px;text-align:left}
+.form-label{
+  display:block;
+  font-family:'Italiana',serif;
+  font-size:11px;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--or);margin-bottom:10px;
+}
+.form-input,.form-select,.form-textarea{
+  width:100%;
+  background:transparent;
+  border:0;border-bottom:1px solid rgba(255,255,255,.2);
+  color:var(--blanc);
+  font-family:'Jost',sans-serif;font-weight:300;font-size:15px;
+  padding:14px 0;
+  outline:none;
+  transition:border-color .3s;
+  -webkit-appearance:none;
+}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--blanc-40);font-style:italic}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-bottom-color:var(--or)}
+.form-select{cursor:pointer}
+.form-select option{background:var(--prune-deep);color:var(--blanc)}
+.form-textarea{
+  resize:none;min-height:100px;
+  border:1px solid rgba(255,255,255,.18);padding:16px 20px;
+  margin-top:0;
+}
+.form-textarea:focus{border-color:var(--or)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+
+.form-submit{
+  width:100%;
+  background:transparent;
+  border:1px solid var(--or);
+  color:var(--or);
+  font-family:'Jost',sans-serif;
+  font-size:11px;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;
+  padding:20px;cursor:pointer;
+  margin-top:16px;
+  position:relative;overflow:hidden;
+  transition:color .4s;
+}
+.form-submit span{position:relative;z-index:1}
+.form-submit::before{
+  content:'';position:absolute;inset:0;
+  background:var(--or);
+  transform:translateY(101%);
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.form-submit:hover{color:var(--prune-deep)}
+.form-submit:hover::before{transform:translateY(0)}
+
+.form-reassurance{
+  font-size:12px;color:var(--blanc-80);
+  margin-top:20px;line-height:1.6;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+}
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+footer{
+  background:var(--prune-deep);
+  border-top:1px solid rgba(201,160,80,.2);
+  padding:80px 0 40px;
+}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:80px}
+.footer-logo-row{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.footer-logo-name{
+  font-family:'Italiana',serif;
+  font-weight:400;font-size:26px;letter-spacing:.32em;
+  color:var(--creme);
+}
+.footer-logo-sub{font-size:10px;color:var(--or);letter-spacing:.22em;margin-bottom:24px;text-transform:uppercase}
+.footer-tagline{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:17px;
+  color:var(--blanc-95);line-height:1.65;max-width:280px;
+}
+.footer-col-title{
+  font-family:'Italiana',serif;
+  font-size:11px;font-weight:400;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--or);margin-bottom:24px;
+}
+.footer-links{display:flex;flex-direction:column;gap:14px}
+.footer-link{
+  font-size:13px;color:var(--blanc-95);
+  text-decoration:none;transition:color .2s;
+  letter-spacing:.02em;
+}
+.footer-link:hover{color:var(--or)}
+.footer-contact{display:flex;flex-direction:column;gap:10px}
+.footer-contact-item{font-size:13px;color:var(--blanc-95);letter-spacing:.02em}
+.footer-contact-item a{color:var(--or);text-decoration:none}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.08);
+  padding-top:32px;margin-top:64px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-legal{font-size:11px;color:var(--blanc-80);letter-spacing:.04em}
+.footer-eios{
+  font-family:'Italiana',serif;
+  font-size:11px;color:var(--or);letter-spacing:.16em;
+}
+
+/* ── SCROLL ANIMATIONS ───────────────────────────────────────── */
+.fade-in{opacity:0;transform:translateY(32px);transition:opacity .9s ease,transform .9s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media(max-width:980px){
+  nav{padding:18px 28px}
+  nav.compact{padding:12px 28px}
+  .nav-links{display:none}
+  .container{padding:0 32px}
+  section{padding:80px 0}
+  .hero{padding:120px 24px 80px}
+  .section-title{font-size:42px}
+  .hero-tagline{font-size:24px}
+  .intro-grid,.ancrage-grid,.footer-grid{grid-template-columns:1fr;gap:48px}
+  .eios-grid,.process-steps,.temoignages-grid{grid-template-columns:1fr 1fr}
+  .niveaux-grid{grid-template-columns:1fr}
+  .niveau{min-height:auto}
+  .form-row{grid-template-columns:1fr}
+  .form-container{padding:0 32px}
+  .ultra-inner{flex-direction:column;gap:14px}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- GRAIN OVERLAY -->
+<div class="grain"></div>
+
+<!-- ── NAV ──────────────────────────────────────────────────────── -->
+<nav id="nav" class="">
+  <a href="#" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 220 80" fill="none">
+      <path d="M 10,68 Q 32,68 50,54 Q 60,46 68,38 Q 74,32 81,27 Q 87,22 93,21 Q 99,20 104,24 Q 109,29 115,39 Q 125,56 148,65 Q 172,70 210,68" stroke="rgba(250,245,240,.7)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+      <circle cx="163" cy="22" r="5" fill="#C9A050"></circle>
+    </svg>
+    <span class="nav-name">ÉMOI</span>
+  </a>
+  <div class="nav-links">
+    <a href="#pourquoi" class="nav-link">Notre différence</a>
+    <a href="#methode" class="nav-link">Méthode EIOS</a>
+    <a href="#niveaux" class="nav-link">Niveaux</a>
+    <a href="#ile" class="nav-link">L'île</a>
+    <a href="#contact" class="nav-cta">Commencer mon voyage</a>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────── -->
+<section class="hero" id="hero">
+
+  <!-- Montagne du Pouce -->
+  <div class="hero-mountain">
+    <svg width="460" height="130" viewBox="0 0 380 130" fill="none">
+      <path d="M 10,118 Q 40,118 65,102 Q 82,90 96,75 Q 110,60 120,46 Q 130,32 138,24 Q 146,16 152,18 Q 158,20 163,30 Q 168,40 173,54 Q 178,68 185,82 Q 192,96 202,106 Q 212,114 222,116 Q 232,114 240,108 Q 250,100 257,92 Q 264,84 270,82 Q 276,80 281,86 Q 286,92 292,102 Q 302,114 320,118 Q 350,120 370,118" stroke="rgba(250,245,240,.55)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M 230,120 Q 258,116 276,120 Q 294,124 312,120 Q 330,116 350,118" stroke="rgba(250,245,240,.22)" stroke-width=".8" fill="none" stroke-linecap="round" opacity=".5"></path>
+      <line x1="10" y1="121" x2="370" y2="121" stroke="rgba(250,245,240,.1)" stroke-width=".5"></line>
+      <circle cx="295" cy="36" r="6" fill="#C9A050"></circle>
+    </svg>
+  </div>
+
+  <!-- Wordmark -->
+  <div class="hero-word">
+    <div class="emoi-word">
+      <span class="el" style="font-size:108px;letter-spacing:14px">ÉM</span>
+      <svg width="62" height="86" viewBox="0 0 44 62" fill="none" style="margin-bottom:5px;flex-shrink:0">
+        <path d="M 19,2 C 1,2 1,60 19,60" stroke="rgba(250,245,240,.92)" stroke-width="1.4" fill="none" stroke-linecap="round"></path>
+        <path d="M 25,2 C 43,2 43,60 25,60" stroke="rgba(250,245,240,.92)" stroke-width="1.4" fill="none" stroke-linecap="round"></path>
+      </svg>
+      <span class="el" style="font-size:108px;letter-spacing:0;margin-left:8px">I</span>
+    </div>
+  </div>
+
+  <div class="hero-rule"></div>
+  <p class="hero-sub">Travel Planner Privé · Île Maurice</p>
+
+  <p class="hero-tagline">
+    Votre voyage<br>
+    <em>n'existera qu'une fois.</em><br>
+    On s'en occupe.
+  </p>
+
+  <!-- Sous-titre explicatif -->
+  <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:15px;color:rgba(250,245,240,.8);max-width:560px;margin:0 auto 36px;line-height:1.7;letter-spacing:.01em;position:relative;z-index:2">
+    Travel planner privé basé à l'île Maurice — nous concevons des séjours sur-mesure pour des voyageurs exigeants.
+  </p>
+
+  <!-- 3 mots-clés visuels -->
+  <div style="display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:48px;flex-wrap:wrap;position:relative;z-index:2">
+    <span style="font-family:'Italiana',serif;font-size:13px;letter-spacing:.28em;color:#C9A050;text-transform:uppercase">Sur-mesure exclusif</span>
+    <span style="width:24px;height:1px;background:rgba(201,160,80,.5)"></span>
+    <span style="font-family:'Italiana',serif;font-size:13px;letter-spacing:.28em;color:#C9A050;text-transform:uppercase">Ancrage local</span>
+    <span style="width:24px;height:1px;background:rgba(201,160,80,.5)"></span>
+    <span style="font-family:'Italiana',serif;font-size:13px;letter-spacing:.28em;color:#C9A050;text-transform:uppercase">Méthode EIOS™</span>
+  </div>
+
+  <!-- Double CTA -->
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2">
+    <a href="#contact" class="btn-primary"><span>Commencer mon voyage</span></a>
+    <a href="https://wa.me/23058580289?text=Bonjour%20Jean-Michel%2C%20je%20souhaite%20%C3%A9changer%20avec%20vous%20sur%20un%20projet%20de%20voyage%20%C3%A0%20Maurice." target="_blank" rel="noopener" style="
+         display:inline-flex;align-items:center;gap:10px;
+         border:1px solid rgba(250,245,240,.4);
+         color:rgba(250,245,240,.9);
+         font-family:'Jost',sans-serif;font-weight:400;
+         font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+         padding:18px 32px;text-decoration:none;
+         transition:all .3s ease;
+       " onmouseover="this.style.background='rgba(250,245,240,.95)';this.style.color='#1F0816';this.style.borderColor='rgba(250,245,240,.95)'" onmouseout="this.style.background='transparent';this.style.color='rgba(250,245,240,.9)';this.style.borderColor='rgba(250,245,240,.4)'">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Discuter sur WhatsApp
+    </a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="scroll-label">Découvrir</span>
+  </div>
+</section>
+
+<!-- ── BANDE DE RÉASSURANCE ─────────────────────────────────────── -->
+<section style="background:linear-gradient(180deg,#1F0816 0%, #2C0E22 100%);border-bottom:1px solid rgba(201,160,80,.18);padding:40px 48px;position:relative">
+  <div style="max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0;align-items:center">
+    <div style="text-align:center;padding:14px 24px;border-right:1px solid rgba(201,160,80,.18)">
+      <p style="font-family:'Italiana',serif;font-size:11px;letter-spacing:.28em;color:#C9A050;text-transform:uppercase;margin-bottom:6px">Maurice · sur place</p>
+      <p style="font-size:13px;color:rgba(255,255,255,.85);font-family:'Cormorant Garamond',serif;font-style:italic">Présence locale et ancrage humain à l'année</p>
+    </div>
+    <div style="text-align:center;padding:14px 24px;border-right:1px solid rgba(201,160,80,.18)">
+      <p style="font-family:'Italiana',serif;font-size:11px;letter-spacing:.28em;color:#C9A050;text-transform:uppercase;margin-bottom:6px">100% sur-mesure</p>
+      <p style="font-size:13px;color:rgba(255,255,255,.85);font-family:'Cormorant Garamond',serif;font-style:italic">Aucun catalogue. Chaque voyage conçu à partir de zéro.</p>
+    </div>
+    <div style="text-align:center;padding:14px 24px">
+      <p style="font-family:'Italiana',serif;font-size:11px;letter-spacing:.28em;color:#C9A050;text-transform:uppercase;margin-bottom:6px">Méthode EIOS™</p>
+      <p style="font-size:13px;color:rgba(255,255,255,.85);font-family:'Cormorant Garamond',serif;font-style:italic">Notre approche propriétaire pour chaque mission</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── POURQUOI ÉMOI ──────────────────────────────────────────── -->
+<section class="intro" id="pourquoi">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-text fade-in visible">
+        <p class="section-label">Notre différence</p>
+        <h2 class="section-title">Nous vivons sur<br>l'île. <em>Cela change tout.</em></h2>
+        <p>Quand vous nous confiez votre voyage, vous ne parlez pas à un
+ conseiller qui a visité Maurice une fois. Vous parlez à quelqu'un qui y
+ vit, qui connaît chaque recoin du lagon, chaque chef qui mérite votre 
+soirée, chaque coucher de soleil que les guides ne mentionnent pas.</p>
+        <p>Nous ne vendons pas des voyages. Nous concevons des moments 
+qui n'ont jamais existé avant vous — et qui n'existeront plus jamais 
+après.</p>
+        <p>Notre méthode <strong>EIOS™</strong> — Écouter, Imaginer, 
+Orchestrer, Sublimer — est notre façon de garantir que chaque détail a 
+été pensé pour vous, et pas pour le client d'avant.</p>
+        <div class="intro-quote">
+          "Avant de parler de votre voyage, nous voulons comprendre comment vous voulez vous sentir en rentrant."
+        </div>
+      </div>
+      <div class="intro-visual fade-in visible">
+        <div class="stat-row">
+          <div class="stat-item">
+            <p class="stat-num">100%</p>
+            <p class="stat-label">des voyages Émoi sont conçus 
+sur-mesure. Aucun catalogue. Aucun programme pré-établi. Votre voyage 
+commence là où s'arrêtent les autres.</p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-num">24/7</p>
+            <p class="stat-label">Présence WhatsApp pendant tout votre séjour. Un imprévu, une envie, une question — nous sommes là. Toujours. Depuis l'île.</p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-num">1</p>
+            <p class="stat-label">Seule conversation suffit pour que nous commencions à imaginer votre voyage. Pas un formulaire. Une vraie conversation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MÉTHODE EIOS ───────────────────────────────────────────── -->
+<section class="methode" id="methode">
+  <div class="container">
+    <div class="fade-in visible">
+      <p class="section-label">Notre méthode</p>
+      <h2 class="section-title">La méthode <em>EIOS™</em></h2>
+      <div class="methode-intro">
+        <p>Un voyage réussi ne se planifie pas. Il se conçoit — avec 
+méthode, sensibilité et une connaissance intime de l'île. Voici comment 
+nous travaillons pour vous.</p>
+      </div>
+    </div>
+    <div class="eios-grid fade-in visible">
+      <div class="eios-step">
+        <div class="eios-or-dot"></div>
+        <p class="eios-letter">E</p>
+        <p class="eios-name">Écouter</p>
+        <p class="eios-body">Avant de parler de l'île, nous vous 
+écoutons. Vos émotions, vos attentes, ce dont vous avez vraiment besoin —
+ pas seulement les dates et le budget. Parce qu'un voyage qui vous 
+ressemble commence par vous comprendre.</p>
+      </div>
+      <div class="eios-step">
+        <div class="eios-or-dot"></div>
+        <p class="eios-letter">I</p>
+        <p class="eios-name">Imaginer</p>
+        <p class="eios-body">Nous concevons votre séjour comme une 
+histoire. Chaque journée a une intention, chaque moment un sens. Pas un 
+planning chargé — une succession de chapitres pensés pour vous, 
+scénarisés avec soin.</p>
+      </div>
+      <div class="eios-step">
+        <div class="eios-or-dot"></div>
+        <p class="eios-letter">O</p>
+        <p class="eios-name">Orchestrer</p>
+        <p class="eios-body">Nous coordonnons chaque détail — hôtels, 
+transferts, expériences, partenaires — pour que votre séjour soit 
+fluide, sans friction, sans surprise désagréable. Vous n'avez rien à 
+gérer. Juste à vivre.</p>
+      </div>
+      <div class="eios-step">
+        <div class="eios-or-dot"></div>
+        <p class="eios-letter">S</p>
+        <p class="eios-name">Sublimer</p>
+        <p class="eios-body">Ce sont les moments que vous n'attendiez 
+pas qui deviennent les plus précieux. Une attention inattendue. Une 
+expérience unique. Un instant suspendu. C'est là que la magie d'Émoi 
+opère.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NIVEAUX D'ACCOMPAGNEMENT ───────────────────────────────── -->
+<section class="niveaux" id="niveaux">
+  <div class="niveaux-header fade-in visible">
+    <p class="section-label">Trois niveaux d'accompagnement</p>
+    <h2 class="section-title" style="margin-bottom:0">Trouvez celui qui<br><em>vous correspond.</em></h2>
+    <p class="niveaux-intro">Émoi est un orchestrateur d'expériences 
+sur-mesure. Nous ne vendons aucun forfait — nous concevons et 
+orchestrons votre voyage selon le niveau d'accompagnement que vous 
+choisissez.</p>
+  </div>
+
+  <div class="niveaux-grid fade-in visible">
+
+    <!-- DÉCOUVERTE -->
+    <div class="niveau niveau-decouverte">
+      <p class="niveau-num">Niveau 01</p>
+      <h3 class="niveau-title">Émoi<br>Découverte</h3>
+      <p class="niveau-tagline">Une première conversation.<br>Et un livrable concret.</p>
+      <div class="niveau-rule"></div>
+      <p class="niveau-promise">Pour ceux qui veulent commencer par 
+tester. Une session approfondie selon la méthode EIOS™, suivie d'un 
+document personnalisé avec nos recommandations concrètes pour votre 
+voyage à Maurice.</p>
+
+      <div class="niveau-section">
+        <p class="niveau-section-title">Ce que vous recevez</p>
+        <div class="niveau-list">
+          <div class="niveau-item"><span class="li-mark">✦</span><span>1 appel EIOS approfondi de 1h à 1h30</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>1 document personnalisé de recommandations</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Sélection d'hébergements alignés à votre profil</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Idées d'expériences à vivre à Maurice</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Conseils pratiques d'un local mauricien</span></div>
+        </div>
+      </div>
+
+      <div class="niveau-mecanique">
+        <p class="niveau-mecanique-title">Comment ça fonctionne</p>
+        <p class="niveau-mecanique-text">Mission ponctuelle, avec 
+livrable défini. Vous repartez avec une vraie cartographie de votre 
+voyage idéal — libre à vous de l'exécuter seul ou de poursuivre avec 
+Émoi.</p>
+      </div>
+
+      <div class="niveau-honoraires">
+        <p class="niveau-honoraires-label">Honoraires</p>
+        <p class="niveau-honoraires-amount">350 €</p>
+        <p class="niveau-honoraires-note">Mission ponctuelle · payée à la commande</p>
+        <p class="niveau-honoraires-credit">150 € déductibles si Signature ou Privilège dans 60 jours</p>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="niveau niveau-signature">
+      <span class="niveau-badge">Le plus choisi</span>
+      <p class="niveau-num">Niveau 02</p>
+      <h3 class="niveau-title">Émoi<br>Signature</h3>
+      <p class="niveau-tagline">L'expérience sur-mesure complète.</p>
+      <div class="niveau-rule"></div>
+      <p class="niveau-promise">Un voyage entièrement conçu pour vous — 
+fluide, cohérent, sans compromis. Vous gardez la main sur les 
+réservations, nous vous donnons la cartographie complète et vivante de 
+votre séjour idéal.</p>
+
+      <div class="niveau-section">
+        <p class="niveau-section-title">Ce que nous concevons</p>
+        <div class="niveau-list">
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Conception complète selon EIOS™</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Sélection des hébergements &amp; expériences</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Itinéraire scénarisé jour par jour</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Coordination des partenaires locaux</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Carnet de voyage Émoi (livret + numérique)</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Itérations &amp; ajustements jusqu'à validation</span></div>
+        </div>
+      </div>
+
+      <div class="niveau-mecanique">
+        <p class="niveau-mecanique-title">Comment ça fonctionne</p>
+        <p class="niveau-mecanique-text">Vous effectuez les réservations
+ directement auprès de nos partenaires recommandés, avec notre 
+accompagnement. Transparence totale, liberté de choix, et meilleurs 
+tarifs partenaires.</p>
+      </div>
+
+      <div class="niveau-honoraires">
+        <p class="niveau-honoraires-label">Honoraires de conception</p>
+        <p class="niveau-honoraires-amount">à partir de 750 €</p>
+        <p class="niveau-honoraires-note">Selon complexité et durée · payés à la signature</p>
+      </div>
+    </div>
+
+    <!-- PRIVILÈGE -->
+    <div class="niveau niveau-privilege">
+      <p class="niveau-num">Niveau 03</p>
+      <h3 class="niveau-title">Émoi<br>Privilège</h3>
+      <p class="niveau-tagline">Le luxe de ne rien gérer.</p>
+      <div class="niveau-rule"></div>
+      <p class="niveau-promise">Tout est orchestré pour vous — avant, 
+pendant et après. Nous prenons en charge chaque détail. Vous arrivez, 
+vous vivez. Le reste, c'est notre métier.</p>
+
+      <div class="niveau-section">
+        <p class="niveau-section-title">Ce que nous orchestrons</p>
+        <div class="niveau-list">
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Tout ce qui est inclus dans Signature</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Coordination complète des réservations</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Suivi personnalisé en amont</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Conciergerie WhatsApp 7j/7 sur place</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Présence physique sur l'île</span></div>
+          <div class="niveau-item"><span class="li-mark">✦</span><span>Création d'un moment orchestré par Émoi</span></div>
+        </div>
+      </div>
+
+      <div class="niveau-mecanique">
+        <p class="niveau-mecanique-title">Comment ça fonctionne</p>
+        <p class="niveau-mecanique-text">Nous pilotons chaque étape avec
+ vous et pour vous. Les paiements aux partenaires se font selon les 
+modalités de chaque prestataire — toujours avec notre validation et 
+notre accompagnement.</p>
+      </div>
+
+      <div class="niveau-honoraires">
+        <p class="niveau-honoraires-label">Honoraires d'orchestration</p>
+        <p class="niveau-honoraires-amount">à partir de 1 500 €</p>
+        <p class="niveau-honoraires-note">Mission complète · acompte 50% à la signature</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ULTRA DISCRET -->
+  <div class="ultra-discret">
+    <div class="ultra-inner">
+      <p class="ultra-mark"><em>Émoi Ultra</em></p>
+      <p class="ultra-text">— pour les projets d'exception, entièrement créés autour de vous —</p>
+      <a href="#contact" class="ultra-link">Sur demande</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── L'ÎLE · ANCRAGE MAURICIEN ─────────────────────────────── -->
+<section class="ancrage" id="ile">
+  <div class="container">
+    <div class="ancrage-grid">
+      <div class="fade-in">
+        <p class="section-label">Notre ancrage</p>
+        <h2 class="section-title">Basés à Maurice.<br><em>Cela change tout.</em></h2>
+        <div class="mauritian-facts">
+          <div class="fact">
+            <span class="fact-num">01</span>
+            <div>
+              <p class="fact-title">L'accès à l'inaccessible</p>
+              <p class="fact-body">Nous connaissons les plages que 
+personne ne montre dans les guides. Les îlots qui ne figurent sur aucune
+ carte touristique. Les levers de soleil qui vous laisseront sans mots.</p>
+            </div>
+          </div>
+          <div class="fact">
+            <span class="fact-num">02</span>
+            <div>
+              <p class="fact-title">Un réseau humain unique</p>
+              <p class="fact-body">Chefs mauriciens renommés, artisans, 
+propriétaires de domaines coloniaux, guides naturalistes — des relations
+ construites dans le temps, pas dans un catalogue.</p>
+            </div>
+          </div>
+          <div class="fact">
+            <span class="fact-num">03</span>
+            <div>
+              <p class="fact-title">Présent avant, pendant et après</p>
+              <p class="fact-body">Nous sommes sur l'île pendant votre 
+séjour. Si quelque chose doit être ajusté, anticipé, amélioré — nous le 
+gérons en temps réel, depuis là où vous êtes.</p>
+            </div>
+          </div>
+          <div class="fact">
+            <span class="fact-num">04</span>
+            <div>
+              <p class="fact-title">Ce que vous ne trouverez nulle part ailleurs</p>
+              <p class="fact-body">Des expériences que nous créons 
+exclusivement — dîners dans des lieux jamais ouverts au public, 
+rencontres arrangées, moments pensés et exécutés par Émoi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ancrage-visual fade-in">
+        <!-- Photo du fondateur -->
+        <div style="margin-bottom: 32px; position: relative; overflow: hidden; border: 1px solid rgba(201, 160, 80, 0.4); background: rgba(0, 0, 0, 0.3); display: none;">
+          <img src="index_files/jean-michel.jpg" alt="Jean-Michel JOLLY — Fondateur Émoi" style="width: 100%; height: auto; display: none; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; filter: saturate(0.95) contrast(1.02);" onerror="this.style.display='none';this.parentElement.style.display='none'">
+          <!-- Ornement coin or -->
+          <div style="position:absolute;bottom:0;right:0;background:linear-gradient(135deg,transparent 50%,rgba(201,160,80,.3) 100%);width:60px;height:60px;pointer-events:none"></div>
+        </div>
+
+        <p class="founder-label">Le fondateur</p>
+        <p class="founder-name">Jean-Michel JOLLY</p>
+        <p class="founder-role">Fondateur · Travel Planner Privé · Île Maurice</p>
+        <p class="founder-bio">Installé à l'île Maurice, passionné par 
+ce que cette île réserve à ceux qui prennent le temps de la comprendre 
+vraiment. J'ai créé Émoi pour offrir à des voyageurs exigeants ce que 
+personne d'autre ne peut leur donner : l'île vue de l'intérieur.</p>
+        <div class="founder-quote">
+          "Chaque voyage que je conçois commence par une question simple : comment voulez-vous vous sentir en rentrant ?"
+        </div>
+        <div class="ancrage-eios">
+          <p class="ancrage-eios-label">Méthode propriétaire</p>
+          <p class="ancrage-eios-text">EIOS™ — Écouter · Imaginer · Orchestrer · Sublimer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESSUS ───────────────────────────────────────────────── -->
+<section class="processus" id="processus">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label">Comment ça fonctionne</p>
+      <h2 class="section-title">Simple. <em>Comme ça devrait<br>toujours l'être.</em></h2>
+    </div>
+    <div class="process-steps fade-in">
+      <div class="process-step">
+        <p class="process-num">01</p>
+        <div class="process-or-line"></div>
+        <p class="process-title">La conversation</p>
+        <p class="process-body">Vous nous écrivez. Nous vous rappelons 
+dans les 24h pour un appel découverte — 30 à 45 minutes pour vraiment 
+vous comprendre. Pas un formulaire. Une conversation.</p>
+      </div>
+      <div class="process-step">
+        <p class="process-num">02</p>
+        <div class="process-or-line"></div>
+        <p class="process-title">La conception</p>
+        <p class="process-body">Après l'appel, nous concevons votre 
+voyage selon EIOS™. Vos honoraires démarrent ce travail. Votre 
+cartographie personnalisée vous parvient sous 7 jours.</p>
+      </div>
+      <div class="process-step">
+        <p class="process-num">03</p>
+        <div class="process-or-line"></div>
+        <p class="process-title">L'orchestration</p>
+        <p class="process-body">Vous validez. Nous nous occupons de tout
+ — réservations, transferts, partenaires locaux, surprises. Vous n'avez 
+plus qu'à attendre de partir.</p>
+      </div>
+      <div class="process-step">
+        <p class="process-num">04</p>
+        <div class="process-or-line"></div>
+        <p class="process-title">Le moment</p>
+        <p class="process-body">Vous arrivez. Nous sommes là — WhatsApp,
+ présence locale, coordination en temps réel. Pendant tout votre séjour,
+ Émoi veille. Vous, vous vivez.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TÉMOIGNAGES ─────────────────────────────────────────────── -->
+<section class="temoignages" id="engagement">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label">Notre engagement</p>
+      <h2 class="section-title">Nos trois <em>promesses.</em></h2>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:rgba(255,255,255,.8);max-width:580px;line-height:1.7;margin-top:18px">Émoi
+ est jeune. Notre exigence ne l'est pas. Voici ce que nous garantissons à
+ chaque client — dès aujourd'hui, dès le premier voyage.</p>
+    </div>
+    <div class="temoignages-grid fade-in">
+      <div class="temoignage">
+        <p style="color:#C9A050;font-family:'Italiana',serif;font-size:11px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:18px">Promesse 01</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;margin-bottom:18px;line-height:1.2">Transparence absolue.</p>
+        <p class="temoignage-text" style="font-style:normal;font-family:'Jost',sans-serif;font-size:14px;line-height:1.75;color:rgba(255,255,255,.85)">Aucune
+ commission cachée, aucun fournisseur imposé. Vous savez exactement ce 
+que vous payez, à qui, et pourquoi. Notre rémunération, ce sont nos 
+honoraires — pas votre voyage.</p>
+      </div>
+      <div class="temoignage">
+        <p style="color:#C9A050;font-family:'Italiana',serif;font-size:11px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:18px">Promesse 02</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;margin-bottom:18px;line-height:1.2">Présence locale réelle.</p>
+        <p class="temoignage-text" style="font-style:normal;font-family:'Jost',sans-serif;font-size:14px;line-height:1.75;color:rgba(255,255,255,.85)">Nous
+ sommes sur l'île, à l'année. Pas un partenaire à distance, pas un guide
+ ponctuel. Pendant votre séjour, vous nous joignez en quelques minutes —
+ pas en 24 heures.</p>
+      </div>
+      <div class="temoignage">
+        <p style="color:#C9A050;font-family:'Italiana',serif;font-size:11px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:18px">Promesse 03</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;margin-bottom:18px;line-height:1.2">Confidentialité totale.</p>
+        <p class="temoignage-text" style="font-style:normal;font-family:'Jost',sans-serif;font-size:14px;line-height:1.75;color:rgba(255,255,255,.85)">Aucune
+ donnée transmise, aucun nom partagé. Votre projet, votre identité, 
+votre voyage — tout reste strictement entre vous et nous. La discrétion 
+est la première forme du luxe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BANDEAU IMMERSIF AVANT FORMULAIRE ─────────────────────────── -->
+<section style="
+  background:
+    radial-gradient(ellipse 80% 100% at 50% 50%, rgba(168,88,120,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 20% 30%, rgba(201,160,80,.10) 0%, transparent 60%),
+    linear-gradient(135deg, #1F0816 0%, #3D1530 50%, #1F0816 100%);
+  padding:120px 48px;
+  text-align:center;
+  border-top:1px solid rgba(201,160,80,.2);
+  border-bottom:1px solid rgba(201,160,80,.2);
+  position:relative;
+  overflow:hidden;
+">
+  <!-- Élément décoratif : trait or vertical -->
+  <div style="position:absolute;top:0;left:50%;width:1px;height:60px;background:linear-gradient(to bottom, transparent, rgba(201,160,80,.5));transform:translateX(-50%)"></div>
+  <div style="position:absolute;bottom:0;left:50%;width:1px;height:60px;background:linear-gradient(to top, transparent, rgba(201,160,80,.5));transform:translateX(-50%)"></div>
+
+  <p style="font-family:'Italiana',serif;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#C9A050;margin-bottom:24px;position:relative">Une île. Mille moments.</p>
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;color:#fff;max-width:780px;margin:0 auto;line-height:1.4;letter-spacing:.01em;position:relative">
+    "Maurice ne se visite pas. Maurice se révèle —<br>à ceux qui prennent le temps de l'écouter."
+  </p>
+  <div style="width:32px;height:1px;background:#C9A050;margin:32px auto 0;position:relative"></div>
+</section>
+
+<!-- ── FORMULAIRE ─────────────────────────────────────────────── -->
+<section class="formulaire" id="contact">
+  <div class="form-container">
+    <div class="form-header fade-in">
+      <p class="section-label">Commencer mon voyage</p>
+      <h2 class="section-title" style="font-size:48px">Parlez-nous de<br><em>votre voyage.</em></h2>
+      <p class="form-intro">Ce formulaire n'est pas un bon de commande.<br>C'est une première conversation. Répondez comme vous le sentez — il n'y a pas de bonne réponse.</p>
+      <div class="form-note">
+        Après envoi, nous vous contactons <strong>sous 24h</strong> pour un appel découverte.
+      </div>
+    </div>
+
+    <form class="fade-in" action="https://formspree.io/f/mzdobznk" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Prénom</label>
+          <input type="text" name="prenom" class="form-input" placeholder="Votre prénom" required="">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nom</label>
+          <input type="text" name="nom" class="form-input" placeholder="Votre nom" required="">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" name="email" class="form-input" placeholder="votre@email.com" required="">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Téléphone</label>
+          <input type="tel" name="telephone" class="form-input" placeholder="+33 6 · · · · · · · ·">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Niveau d'accompagnement souhaité</label>
+        <select name="niveau" class="form-select form-input">
+          <option value="" style="color:#888" selected="selected">Pour vous orienter</option>
+          <option>Émoi Découverte — premier contact</option>
+          <option>Émoi Signature — conception complète</option>
+          <option>Émoi Privilège — orchestration totale</option>
+          <option>Émoi Ultra — projet d'exception</option>
+          <option>Je ne sais pas encore</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Quelle est l'occasion de ce voyage ?</label>
+        <select name="occasion" class="form-select form-input">
+          <option value="" style="color:#888" selected="selected">Choisir une occasion</option>
+          <option>Lune de miel</option>
+          <option>Anniversaire de mariage</option>
+          <option>Escapade en couple</option>
+          <option>Voyage en famille</option>
+          <option>Ressourcement personnel</option>
+          <option>Séjour professionnel + loisirs</option>
+          <option>Célébration d'un moment de vie</option>
+          <option>Autre</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Période envisagée</label>
+        <input type="text" name="periode" class="form-input" placeholder="Ex : septembre 2025 · environ 12 nuits">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">La question qui compte vraiment — comment voulez-vous vous sentir en rentrant ?</label>
+        <textarea name="emotion" class="form-textarea" placeholder="Racontez-nous librement. Pas de bonne ou de mauvaise réponse — juste ce qui vous vient..." rows="4"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Y a-t-il quelque chose que vous rêvez de vivre — même si vous ne savez pas si c'est possible ?</label>
+        <textarea name="reve" class="form-textarea" placeholder="Ce sont souvent ces idées-là qui deviennent les plus beaux moments..." rows="3"></textarea>
+      </div>
+
+      <!-- Formspree: objet de l'email de notification -->
+      <input type="hidden" name="_subject" value="Nouvelle demande ÉMOI — Voyage sur-mesure">
+
+      <button type="submit" class="form-submit"><span>Envoyer ma demande →</span></button>
+      <p class="form-reassurance">Nous lisons chaque message avec attention. Votre demande est confidentielle et ne sera jamais transmise à des tiers.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <svg width="28" height="28" viewBox="0 0 220 80" fill="none">
+            <path d="M 10,68 Q 32,68 50,54 Q 60,46 68,38 Q 74,32 81,27 Q 87,22 93,21 Q 99,20 104,24 Q 109,29 115,39 Q 125,56 148,65 Q 172,70 210,68" stroke="rgba(201,160,80,.55)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="163" cy="22" r="6" fill="#C9A050"></circle>
+          </svg>
+          <p class="footer-logo-name">ÉMOI</p>
+        </div>
+        <p class="footer-logo-sub">Travel Planner Privé · Île Maurice</p>
+        <p class="footer-tagline">"Votre voyage n'existera qu'une fois. On s'en occupe."</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Navigation</p>
+        <div class="footer-links">
+          <a href="#pourquoi" class="footer-link">Notre différence</a>
+          <a href="#methode" class="footer-link">Méthode EIOS™</a>
+          <a href="#niveaux" class="footer-link">Niveaux d'accompagnement</a>
+          <a href="#ile" class="footer-link">L'île Maurice</a>
+          <a href="#contact" class="footer-link">Commencer mon voyage</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <div class="footer-contact">
+          <p class="footer-contact-item">Île Maurice</p>
+          <p class="footer-contact-item"><a href="mailto:bonjour@emoimaurice.com">bonjour@emoimaurice.com</a></p>
+          <p class="footer-contact-item">
+            <a href="https://wa.me/23058580289" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;color:var(--or);text-decoration:none;border:1px solid rgba(201,160,80,.4);padding:8px 16px;font-size:12px;letter-spacing:.08em;transition:background .25s,color .25s" onmouseover="this.style.background='#C9A050';this.style.color='#1F0816'" onmouseout="this.style.background='transparent';this.style.color='#C9A050'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+              WhatsApp · +230 58 58 02 89
+            </a>
+          </p>
+        </div>
+        <div style="margin-top:32px">
+          <p class="footer-col-title">Réseaux</p>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Instagram @emoi.maurice</a>
+            <a href="#" class="footer-link">LinkedIn — Émoi</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Émoi · Jean-Michel JOLLY · Travel Planner Privé · Île Maurice · Tous droits réservés</p>
+      <p class="footer-eios">Concevoir l'expérience. Orchestrer l'émotion.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- BOUTON WHATSAPP FLOTTANT -->
+<a href="https://wa.me/23058580289" target="_blank" rel="noopener" title="Contactez-nous sur WhatsApp" style="
+     position:fixed;bottom:32px;right:32px;z-index:200;
+     width:56px;height:56px;border-radius:50%;
+     background:#25D366;color:#fff;
+     display:flex;align-items:center;justify-content:center;
+     box-shadow:0 4px 24px rgba(37,211,102,.4);
+     text-decoration:none;
+     transition:transform .25s ease, box-shadow .25s ease;
+   " onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 32px rgba(37,211,102,.55)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 24px rgba(37,211,102,.4)'">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+  </svg>
+</a>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, {threshold: 0.1, rootMargin: '0px 0px -60px 0px'});
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('compact', window.scrollY > 80);
+});
+</script>
+
+
+</body></html>
